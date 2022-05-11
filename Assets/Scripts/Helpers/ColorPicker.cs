@@ -24,6 +24,7 @@ public class ColorPicker : MonoBehaviour
             newButton.onClick.AddListener(() =>
             {
                 SelectedColor = color;
+                GameObject.Find("MainManager").GetComponent<MainManager>().TeamColor = SelectedColor;
                 foreach (var button in m_ColorButtons)
                 {
                     button.interactable = true;
@@ -31,7 +32,7 @@ public class ColorPicker : MonoBehaviour
 
                 newButton.interactable = false;
                 
-                onColorChanged.Invoke(SelectedColor);
+                //onColorChanged.Invoke(SelectedColor);
             });
             
             m_ColorButtons.Add(newButton);
